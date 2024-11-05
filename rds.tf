@@ -1,4 +1,4 @@
-resource "aws_db_instance" "automic_acceptance" {
+resource "aws_db_instance" "rds_instance" {
   allocated_storage            = var.allocated_storage
   max_allocated_storage        = var.max_allocated_storage
   apply_immediately            = true
@@ -19,7 +19,7 @@ resource "aws_db_instance" "automic_acceptance" {
   vpc_security_group_ids       = [local.secg_db]
 }
 
-resource "aws_db_parameter_group" "automic_acceptance" {
+resource "aws_db_parameter_group" "rds_parameter_group" {
   name        = "db-euw3-wa-acc-parameters"
   family      = "postgres15"
   description = var.db_parameter_group_desc
@@ -73,7 +73,7 @@ resource "aws_db_parameter_group" "automic_acceptance" {
   }
 }
 
-resource "aws_db_subnet_group" "automic_acceptance" {
+resource "aws_db_subnet_group" "rds_subnet_group" {
   name       = var.db_subnet_group_name
   subnet_ids = [local.subnet_private_a, local.subnet_private_b, local.subnet_private_c]
 
