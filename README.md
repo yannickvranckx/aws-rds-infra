@@ -18,7 +18,7 @@ Check the "import.tf" for the import configuration
 
 ```terraform
 import {
-  to = aws_db_instance.automic_acceptance
+  to = aws_db_instance.rds_instance
   id = "<name DB>"
 }
 ```
